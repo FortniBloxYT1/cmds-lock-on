@@ -322,7 +322,6 @@ game:GetService("RunService").RenderStepped:Connect(function()
 					if an < maxangle and v ~= lplr.Character.Head then
 						maxangle = an
 						aimatpart = v
-						print(v:GetFullName())
 						v.Parent.Humanoid.Died:connect(function()
 							aimatpart = nil
 						end)
