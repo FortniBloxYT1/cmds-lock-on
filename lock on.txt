@@ -2,11 +2,19 @@ local plrs = game:GetService("Players")
 local TeamBased = true ; local teambasedswitch = "p"
 local presskeytoaim = true; local aimkey = "v"
 local raycast = false
-game.StarterGui:SetCore("SendNotification", {
-                        Title = "BOOGA CMDS V1";
-                        Text = "Press P to activate and v to lock";
-                        Duration = 5;
-                        })    
+if getgenv().Executedd then
+	game.StarterGui:SetCore("SendNotification", {
+				Title = "BOOGA CMDS V2";
+				Text = "Press P to activate and v to lock";
+				Duration = 5;
+				})    
+else
+	game.StarterGui:SetCore("SendNotification", {
+				Title = "BOOGA CMDS V1";
+				Text = "Press P to activate and v to lock";
+				Duration = 5;
+				})    
+end
 local espupdatetime = 5; autoesp = false
 
 
