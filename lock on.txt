@@ -135,7 +135,6 @@ local key = "k"
 local aimatpart = nil
 mouse.KeyDown:Connect(function(a)
 	if a == "" then
-		print("worked1")
 		f.addesp()
 	elseif a == "" then
 		if raycast == true then
@@ -191,7 +190,6 @@ mouse.KeyDown:Connect(function(a)
 								maxangle = an
 								aimatpart = plr.Character.Head
 							end
-							print(plr)
 					end
 					plr.Character.Humanoid.Died:Connect(function()
 						if aimatpart.Parent == plr.Character or aimatpart == nil then
