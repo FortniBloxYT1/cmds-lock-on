@@ -167,10 +167,14 @@ mouse.KeyDown:Connect(function(a)
 	elseif a == teambasedswitch then
 		if TeamBased == true then
 			TeamBased = false
-			teambasedstatus.Text = tostring(TeamBased)
+			pcall(function()
+				teambasedstatus.Text = tostring(TeamBased)
+			end)
 		else
 			TeamBased = true
-			teambasedstatus.Text = tostring(TeamBased)
+			pcall(function()
+				teambasedstatus.Text = tostring(TeamBased)
+			end)
 		end
 	elseif a == aimkey then
 		if not aimatpart then
@@ -191,7 +195,6 @@ mouse.KeyDown:Connect(function(a)
 								maxangle = an
 								aimatpart = plr.Character.Head
 							end
-							print(plr)
 					end
 					plr.Character.Humanoid.Died:Connect(function()
 						if aimatpart.Parent == plr.Character or aimatpart == nil then
@@ -324,7 +327,6 @@ game:GetService("RunService").RenderStepped:Connect(function()
 					if an < maxangle and v ~= lplr.Character.Head then
 						maxangle = an
 						aimatpart = v
-						print(v:GetFullName())
 						v.Parent.Humanoid.Died:connect(function()
 							aimatpart = nil
 						end)
