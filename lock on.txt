@@ -14,7 +14,7 @@ else
 				Text = "Press P to activate and v to lock";
 				Duration = 5;
 				})    
-end
+end  
 local espupdatetime = 5; autoesp = false
 
 
@@ -122,8 +122,8 @@ f.addesp = function()
 					end)
 				end
 			end
-			
-			
+
+
 		end
 	end
 end
@@ -135,6 +135,7 @@ local key = "k"
 local aimatpart = nil
 mouse.KeyDown:Connect(function(a)
 	if a == "" then
+		print("worked1")
 		f.addesp()
 	elseif a == "" then
 		if raycast == true then
@@ -190,6 +191,7 @@ mouse.KeyDown:Connect(function(a)
 								maxangle = an
 								aimatpart = plr.Character.Head
 							end
+							print(plr)
 					end
 					plr.Character.Humanoid.Died:Connect(function()
 						if aimatpart.Parent == plr.Character or aimatpart == nil then
@@ -220,7 +222,7 @@ function getaimbotplrs()
 	plrsforaim = {}
 	for i, plr in pairs(plrs:GetChildren()) do
 		if plr.Character and plr.Character.Humanoid and plr.Character.Humanoid.Health > 0 and plr.Name ~= lplr.Name and plr.Character.Head then
-			
+
 			if TeamBased == true then
 				if plr.Team.Name ~= lplr.Team.Name then
 					local cf = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, plr.Character.Head.CFrame.p)
@@ -250,8 +252,8 @@ function getaimbotplrs()
 					table.insert(plrsforaim, obj)
 				end
 			end
-			
-			
+
+
 		end
 	end
 end
@@ -272,8 +274,8 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			aimatpart = nil
 		end
 	end
-	
-	
+
+
 --	if switch == true then
 --		local maxangle = 99999
 --		
@@ -311,7 +313,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 --		elseif raycast == true then
 --			
 --		end
-		
+
 		if raycast == true and switch == false and not aimatpart then
 			getaimbotplrs()
 			aimatpart = nil
@@ -322,13 +324,14 @@ game:GetService("RunService").RenderStepped:Connect(function()
 					if an < maxangle and v ~= lplr.Character.Head then
 						maxangle = an
 						aimatpart = v
+						print(v:GetFullName())
 						v.Parent.Humanoid.Died:connect(function()
 							aimatpart = nil
 						end)
 					end
 				end
 			end
-		
+
 	end
 end)
 delay(0, function()
