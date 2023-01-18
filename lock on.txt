@@ -13,8 +13,8 @@ else
 				Title = "BOOGA CMDS V1";
 				Text = "Press P to activate and v to lock";
 				Duration = 5;
-				})    
-end  
+				})   
+end
 local espupdatetime = 5; autoesp = false
 
 
@@ -79,7 +79,6 @@ f.addesp = function()
 				if plr.Team.Name ~= plrs.LocalPlayer.Team.Name  then
 					local e = espforlder:FindFirstChild(plr.Name)
 					if not e then
-						--print("Added esp for team based")
 						local bill = Instance.new("BillboardGui", espforlder)
 						bill.Name = plr.Name
 						bill.AlwaysOnTop = true
@@ -102,7 +101,6 @@ f.addesp = function()
 			else
 				local e = espforlder:FindFirstChild(plr.Name)
 				if not e then
-					--print("Added esp")
 					local bill = Instance.new("BillboardGui", espforlder)
 					bill.Name = plr.Name
 					bill.AlwaysOnTop = true
@@ -135,7 +133,6 @@ local key = "k"
 local aimatpart = nil
 mouse.KeyDown:Connect(function(a)
 	if a == "" then
-		print("worked1")
 		f.addesp()
 	elseif a == "" then
 		if raycast == true then
@@ -167,14 +164,10 @@ mouse.KeyDown:Connect(function(a)
 	elseif a == teambasedswitch then
 		if TeamBased == true then
 			TeamBased = false
-			pcall(function()
-				teambasedstatus.Text = tostring(TeamBased)
-			end)
+			teambasedstatus.Text = tostring(TeamBased)
 		else
 			TeamBased = true
-			pcall(function()
-				teambasedstatus.Text = tostring(TeamBased)
-			end)
+			teambasedstatus.Text = tostring(TeamBased)
 		end
 	elseif a == aimkey then
 		if not aimatpart then
@@ -282,7 +275,6 @@ game:GetService("RunService").RenderStepped:Connect(function()
 --	if switch == true then
 --		local maxangle = 99999
 --		
---		--print("Loop")
 --		if true and raycast == false then
 --			for i, plr in pairs(plrs:GetChildren()) do
 --				if plr.Name ~= lplr.Name and plr.Character and plr.Character.Head and plr.Character.Humanoid and plr.Character.Humanoid.Health > 1 then
