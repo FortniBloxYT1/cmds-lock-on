@@ -179,13 +179,15 @@ mouse.KeyDown:Connect(function(a)
 			for i, plr in pairs(plrs:GetChildren()) do
 				if plr.Name ~= lplr.Name and plr.Character and plr.Character.Head and plr.Character.Humanoid and plr.Character.Humanoid.Health > 1 then
 					if TeamBased == true then
-						if plr.Team.Name ~= lplr.Team.Name then
-							local an = checkfov(plr.Character.Head)
-							if an < maxangle then
-								maxangle = an
-								aimatpart = plr.Character.Head
+						pcall(function()
+							if plr.Team.Name ~= lplr.Team.Name then
+								local an = checkfov(plr.Character.Head)
+								if an < maxangle then
+									maxangle = an
+									aimatpart = plr.Character.Head
+								end
 							end
-						end
+						end)
 					else
 						local an = checkfov(plr.Character.Head)
 							if an < maxangle then
